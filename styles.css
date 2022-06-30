@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe Print', Tahoma, Geneva, Verdana, sans-serif; 
+    user-select: none;
+    background-color: #80ffe7b3;
+}
+
+.guess-block {
+    color: #92c7ff;
+    font-weight: bold;
+    background-color: #ffcf86;
+    border: 4px solid #ffb74a;
+    Width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    font-size: 50px;
+    line-height: 70px;
+    display: inline-block;
+    user-select: none;
+    text-transform: uppercase;
+    box-shadow: -4px 4px 0px 1px #7cc1b4;
+}
+
+.RowRowRowYourBoat {
+    Width: 590px; 
+    text-align: center;
+    margin: auto;
+    margin-top: 17px;
+}
+
+.wrong-place {
+    color: #fff6b3;
+    background-color: #ddb3ff;
+    border: 4px solid #cf9cf9;
+}
+
+.correct {
+    color: #8eebaf;
+    background-color: #fac4ff;
+    border: 4px solid #f8afff;
+}
+
+.not-valid div {
+    color: rgb(253, 97, 97);
+}
+
+.keyboard {
+    Width: 590px; 
+    text-align: center;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.key {
+    color: #92c7ff;
+    font-weight: bold;
+    background-color: #ffcf86;
+    border: 3px solid #ffb74a;
+    Width: 40px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 40px;
+    line-height: 50px;
+    display: inline-block;
+    user-select: none;
+    text-transform: uppercase;
+    box-shadow: -3px 4px 0px 1px #7cc1b4;
+}
+
+.key_not_found { 
+    color: #ffcf86;
+    font-weight: bold;
+    background-color: #92c7ff;
+    border: 3px solid #76b6f9;
+    Width: 40px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 40px;
+    line-height: 50px;
+    display: inline-block;
+    user-select: none;
+    text-transform: uppercase;
+    box-shadow: -3px 4px 0px 1px #7cc1b4;
+}
+
+#logo {
+    background-color: #92c7ff;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+}
