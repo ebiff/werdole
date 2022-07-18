@@ -43,27 +43,41 @@ body {
     color: rgb(253, 97, 97);
 }
 
-.keyboard {
-    Width: 590px; 
-    text-align: center;
-    margin: auto;
+.keyboard-row {
     margin-top: 25px;
 }
 
 .key {
     color: #92c7ff;
+    font-family: 'Segoe Print', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     background-color: #ffcf86;
     border: 3px solid #ffb74a;
-    Width: 40px;
-    height: 50px;
+    Width: 45px;
+    height: 53px;
     border-radius: 15px;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 50px;
     display: inline-block;
     user-select: none;
     text-transform: uppercase;
-    box-shadow: -3px 4px 0px 1px #7cc1b4;
+    padding: 0;
+    vertical-align: top;
+    box-shadow: -2px 3px 0px 1px #7cc1b4;
+}
+
+#enter, #backspace {
+    Width: 60px;
+}
+
+#enter i {
+    font-size: 40px;
+}
+
+#enter {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .key_not_found { 

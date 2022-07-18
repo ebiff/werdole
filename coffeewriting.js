@@ -17,6 +17,76 @@ function CreepyRando () {
 }
 
 // Typing Functionality (UwU) //
+// Clickables (~^~) //
+
+
+function LettGet (letter) {
+    if (curLet <= 6) {
+        document.getElementById("TheWholeThing")
+                .children[curRow]
+                .children[curLet]
+                .innerHTML = `${letter}`;
+        curLet++;
+    }
+    
+    if (curLet == 7) {
+        SpellChecker(curRow)
+    }
+}
+function Back () {
+    if (curLet > 0) {
+        curLet--;
+        document.getElementById("TheWholeThing")
+                .children[curRow]
+                .children[curLet]
+                .innerHTML = "&nbsp;";
+        document.getElementById("TheWholeThing")
+                .children[curRow]
+                .classList
+                .remove('not-valid');
+    }
+}
+function Enterer () {
+    if (curLet == 7) {
+        var wordGuess = CurWurd(curRow);
+        ValidWird(wordGuess).then(valid => {
+            if (valid) {
+                GuessVsCorrect (wordGuess, randWerd)
+                if (curRow < 6) {
+                    curRow++;
+                    curLet -= 7;
+                }
+            }
+        })
+        
+    }
+}
+function ButtLett (e) {
+    let pie = e.currentTarget
+    if (pie.id == "backspace") {
+        Back ();
+    }
+    else if (pie.id == "enter") {
+        Enterer ();
+    }
+    else {
+        LettGet (pie.innerHTML)
+    }
+}  
+
+
+window.addEventListener("load", function(event) {
+    var clickeronies = document.getElementsByClassName("key");
+
+    // get reference to button
+    for (var i = 0; i < clickeronies.length; i++) {
+        console.log(clickeronies[i]);
+        clickeronies[i].addEventListener("click", ButtLett);
+    }
+});
+
+    
+
 window.addEventListener('keydown', function (e) {
     if (WeHaveANguyener) {
         return;
@@ -24,45 +94,13 @@ window.addEventListener('keydown', function (e) {
 
     // Only Allows Letters To Be Displayed //
     if (e.which >= 65 && e.which <= 90) {
-        if (curLet <= 6) {
-            document.getElementById("TheWholeThing")
-                    .children[curRow]
-                    .children[curLet]
-                    .innerHTML = `${e.key}`;
-            curLet++;
-        }
-        
-        if (curLet == 7) {
-            SpellChecker(curRow)
-        }
+        LettGet (e.key);
     }
     if (e.key == "Backspace") {
-        if (curLet > 0) {
-            curLet--;
-            document.getElementById("TheWholeThing")
-                    .children[curRow]
-                    .children[curLet]
-                    .innerHTML = "&nbsp;";
-            document.getElementById("TheWholeThing")
-                    .children[curRow]
-                    .classList
-                    .remove('not-valid');
-        }
+       Back ();
     }
     if (e.key == "Enter") {
-        if (curLet == 7) {
-            var wordGuess = CurWurd(curRow);
-            ValidWird(wordGuess).then(valid => {
-                if (valid) {
-                    GuessVsCorrect (wordGuess, randWerd)
-                    if (curRow < 6) {
-                        curRow++;
-                        curLet -= 7;
-                    }
-                }
-            })
-            
-        }
+        Enterer ();
     }
 }, false);
  
