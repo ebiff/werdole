@@ -2,6 +2,7 @@ body {
     font-family: 'Segoe Print', Tahoma, Geneva, Verdana, sans-serif; 
     user-select: none;
     background-color: #80ffe7b3;
+    touch-action: manipulation;
 }
 
 .guess-block {
