@@ -1,4 +1,4 @@
-
+// import ConfettiGenerator from "confetti-js";
 
 // Variables (0=0) //
 var dictionURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
@@ -6,10 +6,14 @@ var randWerd = wirdnird[Math.floor(Math.random() * wirdnird.length)];
 var curLet = 0
 var curRow = 0
 var WeHaveANguyener = false
+var confetti = null
 
-console.log(randWerd);
-window.alert("Hello Werdole");
 console.log("Hello Werdole");
+// console.log(randWerd); //
+
+// uncomment below for a surprise ;;;;)))))
+// window.alert("PLAY THIS GAME FOR NEW MANSION AND LAMBO!!! (NO SCAMS, PRESS OK TO WIN ;)"); //
+
 
 // Returns Random Word From WirdNirdListird (O-O) //
 function CreepyRando () {
@@ -21,6 +25,9 @@ function CreepyRando () {
 
 
 function LettGet (letter) {
+    if (WeHaveANguyener) {
+        return;
+    }
     if (curLet <= 6) {
         document.getElementById("TheWholeThing")
                 .children[curRow]
@@ -72,15 +79,32 @@ function ButtLett (e) {
     else {
         LettGet (pie.innerHTML)
     }
-}  
+}
 
+// kolor the keys (UuU) //
+function KeyKolor (ledr, className) {
+    document.getElementById(ledr).className += className
+}
 
 window.addEventListener("load", function(event) {
     var clickeronies = document.getElementsByClassName("key");
+    var confettiElement = document.getElementById('my-canvas');
+    var confettiSettings = { target: confettiElement,
+                             size: 1.5,
+                             max: 500,
+                             colors: [[255, 183, 74],
+                                     [146, 199, 255],
+                                     [118, 182, 249],
+                                     [207, 156, 249],
+                                     [255, 243, 159],
+                                     [227, 216, 140],
+                                     [142, 235, 175],
+                                     [255, 207, 234],
+                                     [255, 178, 221]]};
+    confetti = new ConfettiGenerator(confettiSettings);
 
     // get reference to button
     for (var i = 0; i < clickeronies.length; i++) {
-        console.log(clickeronies[i]);
         clickeronies[i].addEventListener("click", ButtLett);
     }
 });
@@ -116,7 +140,6 @@ function CurWurd (row) {
                 .innerHTML;
         werdscape += ladder;
     }
-    console.log(werdscape);
     return werdscape;
 }
 
@@ -126,7 +149,6 @@ function SpellChecker (checkRow) {
     
     ValidWird(wordGuess).then(result => {
         var isValid = result
-        console.log(isValid)
         if (!isValid) {
             var invalidWord= document.getElementById("TheWholeThing")
                             .children[checkRow];
@@ -155,10 +177,9 @@ function GuessVsCorrect (Guess, Correct) {
                     .children[curRow]
                     .children[i]
                     .className += " correct"
+            KeyKolor(Guess[i], " key_correct")
             Guess = Guess.substring(0, i) + '-' + Guess.substring(i + 1);
             Correct = Correct.substring(0, i) + '/' + Correct.substring(i + 1);
-            console.log (Guess)
-            console.log (Correct)
         }
     }
     for (var i=0; i<7; i++) {
@@ -167,16 +188,18 @@ function GuessVsCorrect (Guess, Correct) {
             document.getElementById("TheWholeThing")
                     .children[curRow]
                     .children[i]
-                    .className += " wrong-place"       
+                    .className += " wrong-place"     
+                    KeyKolor(Guess[i], " key_wrong_place")  
             Correct = Correct.substring(0, indcorlet) + '/' + Correct.substring(indcorlet + 1);    
-            console.log (Correct)
+        }
+        else if (Guess[i] != "-") {
+            KeyKolor(Guess[i], " key_not_found")  
         }
     }
     // Checks If All Letters In Guess Are Correct And Have Been Changed To - //
     if (Guess == "-------") {
         WeHaveANguyener = true
+        document.getElementById("my-canvas").className = "show_canvas"
+        confetti.render();
     }
-}
-if (WeHaveANguyener) {
-    
 }
