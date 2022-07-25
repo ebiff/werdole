@@ -9,11 +9,11 @@ body {
     font-weight: bold;
     background-color: #ffcf86;
     border: 4px solid #ffb74a;
-    Width: 65px;
-    height: 65px;
+    Width: 70px;
+    height: 70px;
     border-radius: 20px;
     font-size: 50px;
-    line-height: 65px;
+    line-height: 70px;
     display: inline-block;
     user-select: none;
     text-transform: uppercase;
@@ -24,7 +24,7 @@ body {
     Width: 590px; 
     text-align: center;
     margin: auto;
-    margin-top: 4px;
+    margin-top: 17px;
 }
 
 .wrong-place {
